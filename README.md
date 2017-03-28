@@ -13,3 +13,8 @@ Repo for https://www.kaggle.com/c/intel-mobileodt-cervical-cancer-screening
   * visualize entropy-image
   * feed entropy image into NN
   * Use segmentation + statistical methods to classify
+
+#Some links for rings detection in images:
+
+http://stackoverflow.com/questions/28407487/how-to-calculate-radius-of-ring-in-matlab
+http://stackoverflow.com/questions/21242011/most-efficient-way-to-calculate-radial-profile 
