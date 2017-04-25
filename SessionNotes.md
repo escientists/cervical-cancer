@@ -7,10 +7,14 @@ So we think we should first crop, then do the superpixel segmentation. After tha
 
 We should also ask Jason about machines. We would like access to some easier machine to work with. 
 
-25 04 2017
+# 25 04 2017
 
-The search for a bumpiness measure. 
+## The search for a bumpiness measure. 
 
 An initial idea for a bumpiness measure was to use entropy (see http://scikit-image.org/docs/dev/auto_examples/filters/plot_entropy.html). However, entropy depends on the number of colors and their distribution, and does not take into account if colors are similar. 
 
 Another idea was to use a discrete fourier to see tell bumpiness using some frequency information. A nice intro about DFT on images is at https://www.cs.unm.edu/~brayer/vision/fourier.html However, I do not really see how we can use this information to extract a bumpiness measure.
+
+## Calculating histograms
+The idea is to calculate features from the super pixels (such as bumpiness, see above) and make a histogram per image over the superpixels. This histogram can be used as an input for a classifier.
+We wrote some code to make superpixels and calculate a histogram (in this case over the mean rgb values). See https://www.kaggle.com/dafnevk/intel-mobileodt-cervical-cancer-screening/fork-of-cervix-segmentation-gmm. 
