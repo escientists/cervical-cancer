@@ -221,21 +221,22 @@ def parallelize_image_cropping(image_files):
 def process_image(filenames):
     t = time.time()
     fn_in, fn_out = filenames
-    img = get_image_data(fn_in)
-    img_cropped, rect = get_and_crop_image(img)
+    if not os.path.exists(fn_out):
+        img = get_image_data(fn_in)
+        img_cropped, rect = get_and_crop_image(img)
 
-    # Resize
-    if (img_cropped.shape[0] > img_cropped.shape[1]):
-        tile_size = (
-        int(img_cropped.shape[1] * 256 / img_cropped.shape[0]), 256)
-    else:
-        tile_size = (
-        256, int(img_cropped.shape[0] * 256 / img_cropped.shape[1]))
-    img_resized = cv2.resize(img_cropped, dsize=tile_size)
+        # Resize
+        if (img_cropped.shape[0] > img_cropped.shape[1]):
+            tile_size = (
+            int(img_cropped.shape[1] * 256 / img_cropped.shape[0]), 256)
+        else:
+            tile_size = (
+            256, int(img_cropped.shape[0] * 256 / img_cropped.shape[1]))
+        img_resized = cv2.resize(img_cropped, dsize=tile_size)
 
-    img_out = cv2.cvtColor(img_resized, cv2.COLOR_RGB2BGR)
-    cv2.imwrite(fn_out, img_out)
-    print('Proccessed image {} in {} seconds'.format(fn_in, time.time()-t))
+        img_out = cv2.cvtColor(img_resized, cv2.COLOR_RGB2BGR)
+        cv2.imwrite(fn_out, img_out)
+        print('Proccessed image {} in {} seconds'.format(fn_in, time.time()-t))
 
 def main(train_folder, output_folder):
     image_files = get_image_files(train_folder, output_folder)
