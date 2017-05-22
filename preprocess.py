@@ -14,6 +14,7 @@ import os
 import sys
 from multiprocessing import Pool, cpu_count
 from functools import partial
+import time
 
 
 def maxHist(hist):
@@ -218,9 +219,9 @@ def parallelize_image_cropping(image_files):
     return
 
 def process_image(filenames):
+    t = time.time()
     fn_in, fn_out = filenames
     img = get_image_data(fn_in)
-    print('Original img size:', img.shape)
     img_cropped, rect = get_and_crop_image(img)
 
     # Resize
@@ -234,6 +235,7 @@ def process_image(filenames):
 
     img_out = cv2.cvtColor(img_resized, cv2.COLOR_RGB2BGR)
     cv2.imwrite(fn_out, img_out)
+    print('Proccessed image {} in {} seconds'.format(fn_in, time.time()-t))
 
 def main(train_folder, output_folder):
     image_files = get_image_files(train_folder, output_folder)
