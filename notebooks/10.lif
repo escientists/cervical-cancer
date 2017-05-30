@@ -1,0 +1,26 @@
+<annotation verified="no">
+  <folder>Type_1</folder>
+  <filename>10</filename>
+  <path>/media/sf_VBox_Shared/kaggle/cervical-cancer/processed/Type_1/10.jpg</path>
+  <source>
+    <database>Unknown</database>
+  </source>
+  <size>
+    <width>256</width>
+    <height>202</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>os</name>
+    <pose>Unspecified</pose>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>98</xmin>
+      <ymin>114</ymin>
+      <xmax>200</xmax>
+      <ymax>147</ymax>
+    </bndbox>
+  </object>
+</annotation>
