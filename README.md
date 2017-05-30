@@ -13,3 +13,6 @@ Repo for https://www.kaggle.com/c/intel-mobileodt-cervical-cancer-screening
   * visualize entropy-image
   * feed entropy image into NN
   * Use segmentation + statistical methods to classify
+
+# HPC Cloud machine
+http://kaggle.sherlock-nlesc.surf-hosted.nl:8888  
